@@ -1,3 +1,9 @@
+:root{
+    --primary: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    --primary-reverse: linear-gradient(90deg, #182848 0%, #4b6cb7 100%);
+    --black: rgb(73, 77, 112);
+}
+
 body, html {
     height: 100%;
 }
@@ -13,13 +19,13 @@ body, html {
     position: relative;
     height: 100vh;
     padding: 2vh 0;
+    background: whitesmoke;
 }
 
 .header {
     position: absolute;
     height: 10vh;
     width: 100%;
-    background-color: green;
     top: 0;
     left: 0;
 }
@@ -30,7 +36,7 @@ body, html {
     top: 10vh;
     left: 0;
     height: 90vh;
-    background-color: whitesmoke;
+
 }
 
 .content {
@@ -39,19 +45,20 @@ body, html {
     max-width: 1200px;
     margin: auto;
     background: white;
-    box-shadow: 3px 3px 31px 9px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 31px 9px rgba(0, 0, 0, 0.5);
 }
 
 .left-side {
     max-height: calc(100vh - 4vh);
-    background: green;
+    background: var(--black);
     width: 30%;
 }
 
 .left-side-header {
-    background-color: #ddd;
+    background-color: var(--black);
     padding: 10px;
-    border-right: 1px solid black;
+    color: white;
+    border-left: none;
 }
 
 .left-side-header h1 {
@@ -60,7 +67,7 @@ body, html {
 }
 
 .left-side-content {
-    margin: 10px 0;
+    margin: 10px 8px;
     padding: 0 10px;
     height: calc(100% - 87px);
     overflow-y: scroll;
@@ -70,7 +77,9 @@ body, html {
     padding: 8px;
     border-radius: 8px;
     color: white;
-    background: red;
+    background: var(--primary-reverse);
+    border: 1px solid white;
+    font-weight: bold;
     text-align: center;
     animation: animate-opacity 0.4s ease-in-out;
 }
@@ -83,13 +92,14 @@ body, html {
     position: relative;
     max-height: calc(100vh - 4vh);
     flex: 1;
+    background: var(--black);
 }
 
 .right-side-content {
     padding: 20px;
     max-height: calc(100% - 50px);
     overflow-y: scroll;
-
+    color: white;
 }
 
 .input-message {
@@ -103,26 +113,41 @@ body, html {
     width: 100%;
     padding: 12px 20px;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
     font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid white;
+    font-weight: bold;
+    background: var(--black);
+    color: white;
 }
 
 .input-message input[type=text]:focus {
-    outline: 1px solid gray;
+    outline: none;
+}
+
+.input-message input[type=text]::placeholder {
+    color: white;
+    opacity: 0.8;
 }
 
 .send-msg {
     padding: 8px 32px;
     outline: none;
-    border: 1px solid gray;
+    border: 1px solid white;
     cursor: pointer;
-    background: red;
+    background: var(--primary);
+    color: white;
+    transition: all .3s ease-in-out;
+    font-weight: bold;
+    border-radius: 8px;
+    opacity: 0.7;
+    margin-left: 16px;
 }
 
 .send-msg:hover {
-    background: blue;
+    opacity: 1;
+    background: var(--primary-reverse);
 }
 
 .dot {
@@ -139,22 +164,41 @@ body, html {
 }
   
 .left-side-content::-webkit-scrollbar-track,.right-side-content::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px red;
+    box-shadow: inset 0 0 5px gray;
     border-radius: 5px;
 }
 
 .left-side-content::-webkit-scrollbar-thumb,.right-side-content::-webkit-scrollbar-thumb {
-    background: red;
+    background: white;
     border-radius: 10px;
 }
 
 .right-msg, .left-msg {
     max-width: 50%;
     background: red;
-    margin: 8px 0;
+    margin: 12px 0;
     padding: 8px;
     border-radius: 8px;
+    border: 1px solid white;
     animation: animate-opacity 0.4s ease-in-out;
+    background: var(--primary);
+}
+
+.right-msg h1, .left-msg h1 {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.right-msg h2, .left-msg h2 {
+    font-size: 24px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.right-msg h3, .left-msg h3 {
+    font-size: 14px;
+    text-align: right;
+    font-style: italic;
 }
 
 .right-msg *, .left-msg * {

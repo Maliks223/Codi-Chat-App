@@ -86,8 +86,8 @@ class App extends Component {
                 return (
                   <div key={index} className={message.id === this.state.id ? 'right-msg' : 'left-msg'}>
                     <h1>{message.name}</h1>
-                    <h2>{message.date}</h2>
-                    <h3>{message.text}</h3>
+                    <h2>{message.text}</h2>
+                    <h3>{message.date}</h3>
                   </div>
                 );
               })}
@@ -95,6 +95,7 @@ class App extends Component {
             <div className="input-message">
               <input
                 type="text"
+                placeholder="Enter your message..."
                 value={this.state.input}
                 onChange={(e) => this.setState({ input: e.target.value })}
               />
@@ -116,8 +117,6 @@ class App extends Component {
               </button>
             </div>
           </div>
-          {/* <div>status: {this.state.isConnected ? 'connected' : 'disconnected'}</div>
-      <div>id: {this.state.id}</div> */}
         </div>
       </div>
     );
