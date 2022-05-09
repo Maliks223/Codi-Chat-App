@@ -45,7 +45,7 @@ body, html {
 .left-side {
     max-height: calc(100vh - 4vh);
     background: green;
-    width: 27%;
+    width: 30%;
 }
 
 .left-side-header {

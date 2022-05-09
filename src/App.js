@@ -70,7 +70,7 @@ class App extends Component {
             <div className="left-side-header">
               <h1>
                 <span class="dot"></span>
-                <span>Online Users ({this.state.peeps.length})</span>
+                <span>Online Users ({this.state.peeps.length >= 1000 ? `1000+` : this.state.peeps.length})</span>
               </h1>
             </div>
             <div className="left-side-content">
@@ -100,12 +100,16 @@ class App extends Component {
               />
               <button
               className="send-msg"
-                onClick={() =>
+                onClick={() => {
+                  if(this.state.input.trim() === "") {
+                    return;
+                  }
                   this.socket.emit("message", {
                     text: this.state.input,
                     id: this.state.id,
                     name: "Maliks",
                   })
+                }
                 }
               >
                 Send
